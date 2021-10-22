@@ -1,9 +1,11 @@
 import { LOADNEWS } from "./types"
 
-export const loadNews = () => 
+export const loadNews = () => function (dispatch) {
     fetch("http://jsonplaceholder.typicode.com/posts")
-    .then(data => data.json())
-    .then(datos => ({
-        type: LOADNEWS,
-        news: datos
-    }))
+        .then(data => data.json())
+        .then(datos => dispatch({
+            type: LOADNEWS,
+            news: datos
+        }
+        ))
+}

@@ -10,7 +10,9 @@ const HomePage = ({ contador, incrementCount, decrementCount, cargarNoticias, no
         <button onClick={incrementCount}>Incrementar</button><br />
         <button onClick={decrementCount}>Decrementar</button><br />
         <button onClick={cargarNoticias}>Cargar Noticias</button><br />
-        {noticias}
+        <ul>
+            {noticias.map(noticia => <li>{noticia.title}</li>)}
+        </ul>
     </div>
 }
 
