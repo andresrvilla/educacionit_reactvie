@@ -14,21 +14,24 @@
     }
 */
 
-import { DECREMENTAR, INCREMENTAR, LOADNEWS } from "./types";
+import { DECREMENTAR, INCREMENTAR, SETNEWS } from "./types";
 
 const reducer = (state, accion) => {
     switch (accion.type) {
         case INCREMENTAR:
             return {
-                count: state.count + 1
+                count: state.count + 1,
+                noticias: state.noticias
             }
         case DECREMENTAR:
             return {
-                count: state.count - 1
+                count: state.count - 1,
+                noticias: state.noticias
             }
-        case LOADNEWS:
+        case SETNEWS:
             return {
-                noticias: accion.news
+                noticias: accion.news,
+                count: state.count
             }
         default:
             //throw new Error("la accion no esta tabulada");
